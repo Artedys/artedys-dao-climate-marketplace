@@ -1,4 +1,4 @@
-# buildspace x thirdweb - Build your own DAO with just Javascript
+# ARTEDYX with buildspace x thirdweb - Build ARTEDYX GREEN BLOCKCHAIN CLIMATE MARKETPLACE DAO 🚀 eSpatiale with just Javascript
 
 ### **Welcome 👋**
 To get started with this course, clone this repo and follow these commands:
