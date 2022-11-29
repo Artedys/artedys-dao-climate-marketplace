@@ -1,13 +1,11 @@
 import sdk from "./1-initialize-sdk.js";
 
-// This is our governance contract.
-const vote = sdk.getVote("0xcd4fc2cbdfed92AE075B81e724567BA736DEded5");
-
-// This is our ERC-20 contract.
-const token = sdk.getToken("0x5B391e4dD3d791840755D92E9c4081A8F8E1a999");
-
 (async () => {
   try {
+    // This is our governance contract.
+    const vote = await sdk.getContract("0xe785d4E5B8cc7375524c59f3c0F1D3d98fDD4846", "vote");
+    // This is our ERC-20 contract.
+    const token = await sdk.getContract("0xb14Fe8cd4C93DA35c1CA8d251aE9Be8aE7aDF123", "token");
     // Give our treasury the power to mint additional token if needed.
     await token.roles.grant("minter", vote.getAddress());
 
@@ -23,6 +21,10 @@ const token = sdk.getToken("0x5B391e4dD3d791840755D92E9c4081A8F8E1a999");
   }
 
   try {
+    // This is our governance contract.
+    const vote = await sdk.getContract("0xe785d4E5B8cc7375524c59f3c0F1D3d98fDD4846", "vote");
+    // This is our ERC-20 contract.
+    const token = await sdk.getContract("0xb14Fe8cd4C93DA35c1CA8d251aE9Be8aE7aDF123", "token");
     // Grab our wallet's token balance, remember -- we hold basically the entire supply right now!
     const ownedTokenBalance = await token.balanceOf(
       process.env.WALLET_ADDRESS
@@ -34,12 +36,12 @@ const token = sdk.getToken("0x5B391e4dD3d791840755D92E9c4081A8F8E1a999");
 
     // Transfer 90% of the supply to our voting contract.
     await token.transfer(
-      vote.getAddress(),
-      percent90
-    ); 
-
+        vote.getAddress(),
+        percent90
+      ); 
+  
       console.log("✅ Successfully transferred " + percent90 + " tokens to vote contract");
-  } catch (err) {
-    console.error("failed to transfer tokens to vote contract", err);
-  }
-})();
+    } catch (err) {
+      console.error("failed to transfer tokens to vote contract", err);
+    }
+  })();
