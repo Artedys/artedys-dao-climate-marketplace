@@ -1,9 +1,8 @@
 import sdk from "./1-initialize-sdk.js";
 
-const token = sdk.getToken("0x5B391e4dD3d791840755D92E9c4081A8F8E1a999");
-
 (async () => {
   try {
+    const token = await sdk.getContract("0xb14Fe8cd4C93DA35c1CA8d251aE9Be8aE7aDF123", "token");
     // Log the current roles.
     const allRoles = await token.roles.getAll();
 
@@ -18,6 +17,6 @@ const token = sdk.getToken("0x5B391e4dD3d791840755D92E9c4081A8F8E1a999");
     console.log("✅ Successfully revoked our superpowers from the ERC-20 contract");
 
   } catch (error) {
-    console.error("Failed to revoke ourselves from the DAO treasury", error);
+    console.error("Failed to revoke ourselves from the DAO trasury", error);
   }
 })();
