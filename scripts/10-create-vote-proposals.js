@@ -1,14 +1,12 @@
 import sdk from "./1-initialize-sdk.js";
 import { ethers } from "ethers";
 
-// This is our governance contract.
-const vote = sdk.getVote("0xcd4fc2cbdfed92AE075B81e724567BA736DEded5");
-
-// This is our ERC-20 contract.
-const token = sdk.getToken("0x5B391e4dD3d791840755D92E9c4081A8F8E1a999");
-
 (async () => {
   try {
+    // This is our governance contract.
+    const vote = await sdk.getContract("0x9087d5D61aA90BB515c7E6687C2E33267fB0D125", "vote");
+    // This is our ERC-20 contract.
+    const token = await sdk.getContract("0xb14Fe8cd4C93DA35c1CA8d251aE9Be8aE7aDF123", "token");
     // Create proposal to mint 420,000 new token to the treasury.
     const amount = 420_000;
     const description = "Should the DAO mint an additional " + amount + " tokens into the treasury?";
@@ -35,13 +33,16 @@ const token = sdk.getToken("0x5B391e4dD3d791840755D92E9c4081A8F8E1a999");
 
     await vote.propose(description, executions);
 
-  console.log("✅ Successfully created proposal to mint tokens");
+    console.log("✅ Successfully created proposal to mint tokens");
   } catch (error) {
     console.error("failed to create first proposal", error);
     process.exit(1);
   }
-
   try {
+    // This is our governance contract.
+    const vote = await sdk.getContract("0xe785d4E5B8cc7375524c59f3c0F1D3d98fDD4846", "vote");
+    // This is our ERC-20 contract.
+    const token = await sdk.getContract("0xb14Fe8cd4C93DA35c1CA8d251aE9Be8aE7aDF123", "token");
     // Create proposal to transfer ourselves 6,900 tokens for being awesome.
     const amount = 6_900;
     const description = "Should the DAO transfer " + amount + " tokens from the treasury to " +
