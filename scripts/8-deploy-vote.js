@@ -4,10 +4,10 @@ import sdk from "./1-initialize-sdk.js";
   try {
     const voteContractAddress = await sdk.deployer.deployVote({
       // Give your governance contract a name.
-      name: "ARTEDYX GOVERNANCE GREEN BLOCKCHAIN CLIMATE MARKETPLACE DAO",
+      name: "ARTEDYX 🚀 DAO CLIMATE Marketplace New Stock Exchange",
 
       // This is the location of our governance token, our ERC-20 contract!
-      voting_token_address: "0x5B391e4dD3d791840755D92E9c4081A8F8E1a999",
+      voting_token_address: "0xb14Fe8cd4C93DA35c1CA8d251aE9Be8aE7aDF123",
 
       // These parameters are specified in number of blocks. 
       // Assuming block time of around 13.14 seconds (for Ethereum)
