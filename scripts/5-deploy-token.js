@@ -6,7 +6,7 @@ import sdk from "./1-initialize-sdk.js";
     // Deploy a standard ERC-20 contract.
     const tokenAddress = await sdk.deployer.deployToken({
       // What's your token's name? Ex. "Ethereum"
-      name: "eSpatiale is THE ARTEDYX GREEN BLOCKCHAIN CLIMATE MARKETPLACE DAO Governance Token",
+      name: "eSpatiale ARTEDYX DAO Governance Token",
       // What's your token's symbol? Ex. "ETH"
       symbol: "ESPATIALE",
       // This will be in case we want to sell our token,
@@ -14,10 +14,10 @@ import sdk from "./1-initialize-sdk.js";
       primary_sale_recipient: AddressZero,
     });
     console.log(
-      "✅ Successfully deployed token module, address:",
+      "✅ Successfully deployed token contract, address:",
       tokenAddress,
     );
   } catch (error) {
-    console.error("failed to deploy token module", error);
+    console.error("failed to deploy token contract", error);
   }
 })();
