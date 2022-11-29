@@ -1,15 +1,15 @@
 import sdk from "./1-initialize-sdk.js";
 import { readFileSync } from "fs";
 
-const editionDrop = await sdk.getEditionDrop("0x8D716cE384BBB3418FB3b8E77288E1c946DB8f96");
-
 (async () => {
   try {
+    const editionDrop = await sdk.getContract("0xeCF9a987680ee41135FfA4C05AAb4A7C1703f188", "edition-drop");
     await editionDrop.createBatch([
       {
-        name: "ARTEDYX GREEN BLOCKCHAIN CLIMATE MARKETPLACE DAO Membership Headband",
-        description: "This NFT will give you access to ARTEDYX GREEN BLOCKCHAIN CLIMATE MARKETPLACE DAO Membership !",
-        image: readFileSync("scripts/assets/ARTEDYS.png"),
+        name: "INSPIRE-SAT Project Manager NFT access",
+        description: "This NFT will give you access to ARTEDYX DAO CLIMATE Marketplace New Stock Exchange!",
+        // image: readFileSync("scripts/assets/ARTEDYS.png"),
+        image: readFileSync("scripts/assets/Mustapha.png"),
       },
     ]);
     console.log("✅ Successfully created a new eSpatiale NFT in the drop!");
